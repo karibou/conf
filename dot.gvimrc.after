@@ -1,0 +1,25 @@
+set guifont=Menlo\ Regular:h18
+
+syntax on
+filetype indent plugin on
+set bg=dark
+set ai
+autocmd BufRead,BufNewFile *.xml set shiftwidth=2 tabstop=2 expandtab filetype=xml
+highlight colorcolumn ctermbg=0
+let &colorcolumn=join(range(80,999),",")
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_mode_map = { "mode": "passive" }
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_python_checkers = ['flake8', 'pep8']
+let g:syntastic_python_python_exec = '/usr/bin/python3'
+let g:syntastic_python_pylint_exec = '/usr/bin/pylint3'
+map OQ :SyntasticReset
+map OR :SyntasticCheck
+map OS :lprev
+map [15~ :lnext
